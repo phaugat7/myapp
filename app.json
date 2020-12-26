@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "medgaiausapp",
+    "slug": "medgaiausapp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./app/assets/icon1.png",
+    "splash": {
+      "image": "./app/assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#e63c4b"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.xformics.medgaiaapp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./app/assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.xformics.medgaiaapp",
+      "versionCode": 1,
+      "useNextNotificationsApi": true
+    },
+    "web": {
+      "favicon": "./app/assets/favicon.png"
+    },
+    "notification": {
+      "iosDisplayInForeground": true
+    }
+  }
+}

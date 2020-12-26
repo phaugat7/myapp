@@ -1,0 +1,59 @@
+<DBSchema>
+    <Entities>
+        <Entity TableName="YFS_SHIP_NODE">
+            <Attributes>
+                <Attribute ColumnName="EXTN_IS_TC51_STORE"
+                           DataType="Flag"
+                           DefaultValue="N"
+                           Description="Is node a TC51 store"
+                           Nullable="true"
+                           XMLName="ExtnIsTC51Store"
+                           XMLGroup="Extn"/>
+            </Attributes>
+        </Entity>
+
+        <Entity ApiNeeded="Y" AuditRequired="N" Description="Table Stores RX Order Line Details" HasHistory="Y" Prefix="CVS" TableName="CVS_RX_ORDER_LINE" XMLName="CVSRxOrderLine" Cacheable="false">
+            <Attributes>
+                <Attribute ColumnName="RX_ORDER_LINE_KEY" DataType="Key" Description="Primary key for CVS_RX_ORDER_LINE record" Nullable="false" XMLName="RxOrderLineKey"/>
+                <Attribute ColumnName="ORDER_LINE_KEY" DataType="Key" Description="Primary Key Of YFS_ORDER_LINE" Nullable="false" XMLName="OrderLineKey"/>
+                <Attribute ColumnName="RX_NUMBER" Type="VARCHAR2" Size="40" DefaultValue=" " Description="Rx Prescription Number" Nullable="true" XMLName="SerialNumber"/>
+                <Attribute ColumnName="FILL_NUMBER" Type="VARCHAR2" Size="5" DefaultValue=" " Description="Fill Number" Nullable="true" XMLName="FillNumber"/>
+                <Attribute ColumnName="FILL_SEQUENCE_NUMBER" Type="VARCHAR2" Size="5" DefaultValue=" " Description="Fill Sequence Number" Nullable="true" XMLName="FillSequenceNumber"/>
+                <Attribute ColumnName="FILL_VERSION_NUMBER" Type="VARCHAR2" Size="5" DefaultValue=" " Description="Fill Version Number" Nullable="true" XMLName="FillVersionNumber"/>
+                <Attribute ColumnName="PATIENT_ID" Type="VARCHAR2" Size="40" DefaultValue=" " Description="RxConnect ID for the patient" Nullable="true" XMLName="PatientId"/>
+                <Attribute ColumnName="ITEM_COST" Type="VARCHAR2" Size="40" DefaultValue=" " Description="Item Cost" Nullable="true" XMLName="ItemCost"/>
+                <Attribute ColumnName="PROGRAM_TYPE" Type="VARCHAR2" Size="30" DefaultValue=" " Description="Program Type" Nullable="true" XMLName="ProgramType"/>
+                <Attribute ColumnName="FULFILLMENT_LOCATION" Type="VARCHAR2" Size="40" DefaultValue=" " Description="Fulfillment Location" Nullable="true" XMLName="FulfillmentLocation"/>
+                <Attribute ColumnName="SHIP_TO_STORE_NUMBER" Type="VARCHAR2" Size="40" DefaultValue=" " Description="Ship To Store Number" Nullable="true" XMLName="ShipToStoreNumber"/>
+                <Attribute ColumnName="SHIP_DATE" Type="VARCHAR2" Size="40" DefaultValue=" " Description="Item Shipment Date" Nullable="true" XMLName="ShipDate"/>
+                <Attribute ColumnName="DELIVERY_DATE" Type="VARCHAR2" Size="40" DefaultValue=" " Description="Item Shipment Date" Nullable="true" XMLName="DeliveryDate"/>
+                <Attribute ColumnName="TRACKING_NUMBER" Type="VARCHAR2" Size="100" DefaultValue=" " Description="Tracking Number" Nullable="true" XMLName="TrackingNumber"/>
+                <Attribute ColumnName="CARRIER_SERVICE_CODE" Type="VARCHAR2" Size="40" DefaultValue=" " Description="The carrier service used to ship for the order" Nullable="true" XMLName="CarrierShipCode"/>
+                <Attribute ColumnName="LOCKID" DataType="Lockid" DefaultValue="0" Description="" Nullable="False" XMLName="LockID"/>
+                <Attribute ColumnName="CREATETS" DataType="TimeStamp" DefaultValue="sysdate" Description="Create TimeStamp"/>
+                <Attribute ColumnName="MODIFYTS" DataType="TimeStamp" DefaultValue="sysdate" Description="Modify TimeStamp"/>
+                <Attribute ColumnName="CREATEUSERID" DataType="Createuserid" DefaultValue="' '" Description="Creating User ID"/>
+                <Attribute ColumnName="MODIFYUSERID" DataType="Modifyuserid" DefaultValue="' '" Description="Modifying User ID"/>
+                <Attribute ColumnName="CREATEPROGID" DataType="Createprogid" DefaultValue="' '" Description="Creating Program ID"/>
+                <Attribute ColumnName="MODIFYPROGID" DataType="Modifyprogid" DefaultValue="' '" Description="Modifying Program ID"/>
+            </Attributes>
+            <PrimaryKey Name="RX_ORDER_LINE_PK">
+                <Attribute ColumnName="RX_ORDER_LINE_KEY"/>
+            </PrimaryKey>
+            <Parent ParentTableName="YFS_ORDER_LINE" XMLName="YFSOrderLine">
+                <Attribute ColumnName="ORDER_LINE_KEY" ParentColumnName="ORDER_LINE_KEY"/>
+            </Parent>
+            <Indices>
+                <Index Name="CVS_RX_ORDER_LINE_I1" Unique="true">
+                    <Column Name="RX_NUMBER" />
+                    <Column Name="FILL_NUMBER" />
+                    <Column Name="FILL_SEQUENCE_NUMBER" />
+                    <Column Name="FILL_VERSION_NUMBER" />
+                    <Column Name="FILL_VERSION_NUMBER" />
+                </Index>
+            </Indices>
+        </Entity>
+
+    </Entities>
+</DBSchema>
+
